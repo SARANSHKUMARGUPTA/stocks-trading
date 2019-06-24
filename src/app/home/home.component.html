@@ -1,0 +1,63 @@
+<div class="row">
+	<div class="col-sm-2">
+		
+		<div class="panel-body">
+			<div class="panel panel-default" style="margin-left:10px">
+				<div class="panel-heading">
+					Change Stock
+				</div>
+				<div class="panel-body">
+					<fieldset>
+						<form class="example-form">
+								<input Yplaceholder="Stock" aria-label="Stock"  [formControl]="stocksCtrl" #symbol>
+							<!--<mat-form-field class="example-full-width">
+								<input matInput placeholder="Stock" aria-label="Stock" [matAutocomplete]="auto" [formControl]="stocksCtrl" #symbol>
+								<mat-autocomplete #auto="matAutocomplete">
+									<mat-option *ngFor="let stock of filteredStocks | async" [value]="stock.Symbol">
+										<span>{{stock.Symbol}}</span> |
+										<small>{{stock.Description}}</small>
+									</mat-option>
+								</mat-autocomplete>
+
+							</mat-form-field>-->
+							<br>
+							<button class="btn btn-primary" (click)="fetchDetails(symbol.value,'GAINER')">Details
+							</button>&nbsp;&nbsp;
+							<!--<button class="btn btn-danger" (click)="fetchDetails(symbol.value,'LOSER')">Loser
+							</button> -->
+						</form>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+				<div class="panel panel-default" style="margin-left:10px">
+					<div class="panel-heading">
+						Dashboard
+					</div>
+					<div class="panel-body">
+	
+						<p>
+							<button type="button" (click)="fetchGainers()" class="btn btn-success">Gainers</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<button (click)="fetchLosers()" type="button" class="btn btn-danger">Losers</button>
+						</p>
+	
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="col-sm-10" [hidden]="hideList">
+		<div class="panel-body">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Gainers/Losers
+				</div>
+				<div class="panel-body">
+					<router-outlet></router-outlet>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
